@@ -55,5 +55,5 @@ class EmptyForm(FlaskForm):
 
 
 class PostForm(FlaskForm):     # Форма создвния поста
-    post = TextAreaField('Весь универсситет ждет ваших постов?', validators=[DataRequired()])
+    post = TextAreaField('Весь университет ждет ваших постов!', validators=[DataRequired()])
     submit = SubmitField('Подтвердить')

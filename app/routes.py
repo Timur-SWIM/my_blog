@@ -106,7 +106,7 @@ def user(username):
         page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
     next_url = url_for('Пользователь', username=user.username, page=posts.next_num) \
         if posts.has_next else None
-    prev_url = url_for('пользователь', username=user.username, page=posts.prev_num) \
+    prev_url = url_for('Пользователь', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
     form = EmptyForm()
     return render_template('user.html', user=user, posts=posts.items,
