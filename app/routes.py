@@ -87,7 +87,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(username=form.username.data, email=form.email.data, status=form.status.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -101,6 +101,7 @@ def register():
 def user(username):
     '''Функция вывода страницы пользователя'''
     user = User.query.filter_by(username=username).first_or_404()
+    #status = User.query.filter_by(status=status).first()
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(
         page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)

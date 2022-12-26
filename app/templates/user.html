@@ -5,7 +5,7 @@
         <tr>
             <td width="256px"><img src="{{ user.avatar(256) }}"></td>
             <td>
-                <h1>Пользователь: {{ user.username }}</h1>
+                <h1>{% if user.status %}{{ user.status }}:{% endif %} {{ user.username }}</h1>
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
                 {% if user.last_seen %}<p>был в сети последний раз: {{ user.last_seen }}</p>{% endif %}
                 <p>подписчики:{{ user.followers.count() }} подписки: {{ user.followed.count() }}</p>
